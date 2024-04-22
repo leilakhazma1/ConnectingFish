@@ -1,6 +1,6 @@
 let express = require("express");
 let router = express.Router();
-let Controllers = require("../controllers");
+let Controllers = require("../controllers/fisheriesController");
 
 router.get('/', (req, res) => {
   Controllers.fisheriesController.getFisheries(res);

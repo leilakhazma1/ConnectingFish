@@ -1,8 +1,3 @@
-let dbConnect = require("./dbConnect");
-
-
-app.use('/api/users', userRoutes);
-
 const express = require("express");
 const app = express();
 require("dotenv").config();
@@ -11,8 +6,8 @@ require("dotenv").config();
 app.use(express.json());
 
 // Routes
-const fisheriesRouter = require("./routes/fisheries");
-const usersRouter = require("./routes/users");
+const fisheriesRouter = require("./routes/fisheriesRoutes");
+const usersRouter = require("./routes/userRoutes");
 app.use("/fisheries", fisheriesRouter);
 app.use("/users", usersRouter);
 
@@ -21,9 +16,11 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the ConnectingFisheries application." });
 });
 
+// Require dbConnect after initializing app
+let dbConnect = require("./dbConnect");
+
 // Set port and listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
