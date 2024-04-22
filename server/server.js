@@ -1,5 +1,8 @@
 let dbConnect = require("./dbConnect");
 
+
+app.use('/api/users', userRoutes);
+
 const express = require("express");
 const app = express();
 require("dotenv").config();
