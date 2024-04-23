@@ -1,86 +1,89 @@
 [
-   {
-        "name": "Torres_Strait_Tropical_Rock_Lobster_Fishery",
-        "id": 1,
-        "location": "Torres Strait",
-        "species": "tropical rock lobster (Panulirus ornatus)",
-        "fishing_method": "dive-based, hand-collection fishery",
-        "equipment": ["surface-supplied air (hookah)", "free-dive"],
-        "vessels": ["<6 m vessels", "dinghies"],
-        "operators": ["motherships with tenders", "individual fishing vessels"]
-    },
-     {
-        "name":"Torres_Strait_Prawn_Fishery",
-        "id": 2,
-        "location": "Torres Strait Protected Zone and nearby Queensland waters",
-        "species": ["brown tiger prawn (Penaeus esculentus)", "blue endeavour prawn (Metapenaeus endeavouri)"],
-        "fishing_method": "demersal otter trawl",
-        "nets": "4 nets divided into 2 pairs",
-        "tow_duration": "2.5 to 4 hours",
-        "tow_speed": "around 3 knots"
-    },
-     {
-        "name": "Torres_Strait_Bêche-de-mer_Fishery",
-        "id": 3,
-        "location": "Torres Strait Protected Zone and waters south of it",
-        "species": ["curryfish species (Stichopus herrmanni, S. vastus)", "deepwater redfish (Actinopyga echinites)", "hairy blackfish (A. miliaris)"],
-        "collection_methods": ["free-diving", "reef-top walking"],
-        "depth_range": "0-30 m"
-    },
-     {
-        "name": "Torres_Strait_Trochus_Fishery",
-        "id": 4,
-        "location": "Torres Strait Protected Zone and waters south of it",
-        "species": "trochus (Trochus niloticus)",
-        "collection_methods": ["reef-top walking", "free-diving"]
-    },
-     {
-        "name": "Eastern_Tuna_and_Billfish_Fishery",
-        "id": 5,
-        "location": "Exclusive Economic Zone from Cape York to Victoria-South Australia border, including Tasmania and high seas of Pacific Ocean",
-        "species": ["bigeye tuna (Thunnus obesus)", "yellowfin tuna (T. albacares)", "swordfish (Xiphias gladius)"]
-    },
-     {
-        "name": "Western_Tuna_and_Billfish_Fishery",
-        "id": 6,
-        "location": "Exclusive Economic Zone and high seas of Indian Ocean",
-        "species": ["bigeye tuna (Thunnus obesus)", "yellowfin tuna (T. albacares)", "swordfish (Xiphias gladius)"]
-    },
-  {
-        "name": "Skipjack_Tuna_Fishery",
-        "id": 7,
-        "location": "East and West coast of Australia",
-        "species": "skipjack tuna (Katsuwonus pelamis)",
-        "fishing_methods": ["purse-seine gear", "longline"],
-        "bycatch_methods": ["minor-line methods"]
-    },
-     {
-        "name" : "Heard_Island_and_McDonald_Islands_Fishery",
-        "id": 8,
-        "location": "Southern Indian Ocean",
-        "species": ["Patagonian toothfish (Dissostichus eleginoides)", "mackerel icefish (Champsocephalus gunnari)"],
-        "fishing_methods": ["demersal longline", "demersal and midwater trawl"]
-    },
-   {
-        "name": "Macquarie_Island_Toothfish_Fishery",
-        "id": 9,
-        "location": "Macquarie Island region",
-        "species": "Patagonian toothfish (Dissostichus eleginoides)",
-        "fishing_methods": ["longline", "trawling (historical)"]
-    },
-     { "name": "Eastern_Skipjack_Tuna_Fishery",
-        "id": 10,
-        "location": "East coast of Australia",
-        "species": "skipjack tuna (Katsuwonus pelamis)",
-        "fishing_methods": ["purse-seine gear"],
-        "bycatch_methods": ["minor-line methods"]
+    {
+      "name": "Torres_Strait_Tropical_Rock_Lobster_Fishery",
+      "id": 1,
+      "location": "Torres Strait",
+      "species": "tropical rock lobster (Panulirus ornatus)",
+      "fishing_method": "dive-based, hand-collection fishery",
+      "equipment": "surface-supplied air (hookah), free-dive",
+      "vessels": "<6 m vessels, dinghies",
+      "operators": "motherships with tenders, individual fishing vessels",
+      "collection_methods": ""
     },
     {
-        "name": "Western_Skipjack_Tuna_Fishery",
-        "id": 11,
-        "location": "West coast of Australia",
-        "species": "skipjack tuna (Katsuwonus pelamis)",
-        "fishing_methods": ["purse-seine gear"],
-        "bycatch_methods": ["minor-line methods"]
+      "name": "Torres_Strait_Prawn_Fishery",
+      "id": 2,
+      "location": "Torres Strait Protected Zone and nearby Queensland waters",
+      "species": "brown tiger prawn (Penaeus esculentus), blue endeavour prawn (Metapenaeus endeavouri)",
+      "fishing_method": "demersal otter trawl",
+      "nets": "4 nets divided into 2 pairs",
+      "tow_duration": "2.5 to 4 hours",
+      "tow_speed": "around 3 knots"
+    },
+    {
+      "name": "Torres_Strait_Bêche-de-mer_Fishery",
+      "id": 3,
+      "location": "Torres Strait Protected Zone and waters south of it",
+      "species": "curryfish species (Stichopus herrmanni, S. vastus), deepwater redfish (Actinopyga echinites), hairy blackfish (A. miliaris)",
+      "collection_methods": "free-diving, reef-top walking",
+      "depth_range": "0-30 m"
+    },
+    {
+      "name": "Torres_Strait_Trochus_Fishery",
+      "id": 4,
+      "location": "Torres Strait Protected Zone and waters south of it",
+      "species": "trochus (Trochus niloticus)",
+      "collection_methods": "reef-top walking, free-diving"
+    },
+    {
+      "name": "Eastern_Tuna_and_Billfish_Fishery",
+      "id": 5,
+      "location": "Exclusive Economic Zone from Cape York to Victoria-South Australia border, including Tasmania and high seas of Pacific Ocean",
+      "species": "bigeye tuna (Thunnus obesus), yellowfin tuna (T. albacares), swordfish (Xiphias gladius)"
+    },
+    {
+      "name": "Western_Tuna_and_Billfish_Fishery",
+      "id": 6,
+      "location": "Exclusive Economic Zone and high seas of Indian Ocean",
+      "species": "bigeye tuna (Thunnus obesus), yellowfin tuna (T. albacares), swordfish (Xiphias gladius)"
+    },
+    {
+      "name": "Skipjack_Tuna_Fishery",
+      "id": 7,
+      "location": "East and West coast of Australia",
+      "species": "skipjack tuna (Katsuwonus pelamis)",
+      "fishing_methods": "purse-seine gear, longline",
+      "bycatch_methods": "minor-line methods"
+    },
+    {
+      "name": "Heard_Island_and_McDonald_Islands_Fishery",
+      "id": 8,
+      "location": "Southern Indian Ocean",
+      "species": "Patagonian toothfish (Dissostichus eleginoides), mackerel icefish (Champsocephalus gunnari)",
+      "fishing_methods": "demersal longline, demersal and midwater trawl"
+    },
+    {
+      "name": "Macquarie_Island_Toothfish_Fishery",
+      "id": 9,
+      "location": "Macquarie Island region",
+      "species": "Patagonian toothfish (Dissostichus eleginoides)",
+      "fishing_methods": "longline, trawling (historical)"
+    },
+    {
+      "name": "Eastern_Skipjack_Tuna_Fishery",
+      "id": 10,
+      "location": "East coast of Australia",
+      "species": "skipjack tuna (Katsuwonus pelamis)",
+      "fishing_methods": "purse-seine gear",
+      "bycatch_methods": "minor-line methods"
+    },
+    {
+      "name": "Western_Skipjack_Tuna_Fishery",
+      "id": 11,
+      "location": "West coast of Australia",
+      "species": "skipjack tuna (Katsuwonus pelamis)",
+      "fishing_methods": "purse-seine gear",
+      "bycatch_methods": "minor-line methods"
     }
-]
+  ]
+  
