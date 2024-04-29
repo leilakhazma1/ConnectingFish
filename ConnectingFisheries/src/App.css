@@ -2,7 +2,6 @@
   line-height: 1.5;
   letter-spacing: 1px;
   font-weight: 500;
-  color: white;
   background-color: white;
   opacity: 1;
   font-synthesis: none;
@@ -12,19 +11,6 @@
   position: relative;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  position: relative;
-  background-image: url('../assets/RickStein.png'); 
-  background-size: 45%; 
-  background-position: bottom left; 
-  background-repeat: no-repeat; 
-}
 
 p {
   font-family: 'Sorts Mill Goudy', serif;
@@ -42,4 +28,28 @@ p {
   z-index: 1000;
   height: 50px;
   background-color: #ffffff;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link,
+.back-button {
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-family: 'Sorts Mill Goudy', serif;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0);
+  padding: 0.5rem;
 }

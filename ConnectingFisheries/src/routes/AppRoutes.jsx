@@ -4,7 +4,7 @@ import Home from '../pages/Home'
 import About from '../pages/About';
 import MapofFisheries from '../pages/MapofFisheries';
 import YourFish from '../pages/YourFIsh'
-import NavBar from '../components /NavBar';
+import NavBar from '../components/NavBar';
 
 function AppRoutes() {
   return (

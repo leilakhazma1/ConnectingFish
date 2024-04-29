@@ -1,12 +1,14 @@
 import React from 'react';
 import AppRoutes from './routes/AppRoutes';
-import './styles/Home.css';
+import './App.css';
+import NavBar from './components/NavBar';
 
 
 function App() {
   return (
    
       <div>
+        <NavBar />
         <AppRoutes />
       </div>
    
