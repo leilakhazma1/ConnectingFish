@@ -1,8 +1,8 @@
 'use strict'
-const Fisheries = require('./fisheries');
+const Fishery = require('./fishery');
 const User = require('./user');
 
 module.exports = {
-  Fisheries,
+  Fishery,
   User
 };

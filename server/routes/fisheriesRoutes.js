@@ -1,13 +1,13 @@
 let express = require("express");
 let router = express.Router();
-let Controllers = require("../controllers/fisheriesController");
+let fisheriesController = require("../controllers/fisheriesController");
 
 router.get('/', (req, res) => {
-  Controllers.fisheriesController.getFisheries(res);
+  fisheriesController.getFisheries(res);
 });
 
 router.post('/create', (req, res) => {
-  Controllers.fisheriesController.createFishery(req.body, res);
+  fisheriesController.createFishery(req.body, res);
 });
 
 module.exports = router;

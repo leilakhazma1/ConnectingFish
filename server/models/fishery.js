@@ -24,4 +24,4 @@ const fisheriesSchema = new Schema({
   updatedAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("Fisheries", fisheriesSchema);
+module.exports = mongoose.model("fishery", fisheriesSchema);
