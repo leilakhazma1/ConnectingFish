@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar';
 import Home from '../pages/Home'
 import About from '../pages/About';
 import MapofFisheries from '../pages/MapofFisheries';
-import YourFIsh from '../pages/YourFish'
+import YourFish from '../pages/YourFish'
 
 
 function AppRoutes() {
@@ -15,7 +15,7 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/map" element={<MapofFisheries />} />
-        <Route path="/yourfish" element={<YourFIsh />} />
+        <Route path="/yourfish" element={<YourFish />} />
       </Routes>
     </>
   );
