@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const fisheriesSchema = new Schema({
-  name: {type: String, required: true},
+  name: { type: String, required: true },
   id: { type: Number, required: true, unique: true },
   species: { type: String, required: true },
   location: { type: String, required: true },
-  fishing_method: { type: String},
+  fishing_method: { type: String },
   equipment: { type: String },
   vessels: { type: String },
   operators: { type: String },
@@ -18,6 +18,8 @@ const fisheriesSchema = new Schema({
   bycatch_methods: { type: String },
   fishing_methods: { type: String },
   bycatch_methods: { type: String },
+  latitude: { type: Number, required: true },
+  longitude: { type: Number, required: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });
