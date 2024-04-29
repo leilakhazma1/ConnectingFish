@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 import Home from '../pages/Home'
 import About from '../pages/About';
 import MapofFisheries from '../pages/MapofFisheries';
-import YourFish from '../pages/YourFIsh'
-import NavBar from '../components/NavBar';
+import YourFIsh from '../pages/YourFish'
+
 
 function AppRoutes() {
   return (
@@ -14,7 +15,7 @@ function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/map" element={<MapofFisheries />} />
-        <Route path="/yourfish" element={<YourFish />} />
+        <Route path="/yourfish" element={<YourFIsh />} />
       </Routes>
     </>
   );
