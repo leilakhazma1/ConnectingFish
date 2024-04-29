@@ -8,8 +8,8 @@ app.use(express.json());
 // Routes
 const fisheriesRouter = require("./routes/fisheriesRoutes");
 const usersRouter = require("./routes/userRoutes");
-app.use("/fisheries", fisheriesRouter);
-app.use("/users", usersRouter);
+app.use("/api/fisheries", fisheriesRouter);
+app.use("/api/users", usersRouter);
 
 // Example route
 app.get("/", (req, res) => {
