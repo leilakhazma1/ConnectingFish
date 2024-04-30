@@ -8,7 +8,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch('/api/users/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -17,11 +17,11 @@ const LoginForm = () => {
       });
 
       if (response.ok) {
-        alert('Login successful!');
+        alert('User created successfully!');
         // You can redirect the user to another page here
       } else {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to login');
+        throw new Error(errorData.error || 'Failed to create user');
       }
     } catch (error) {
       alert(error.message);
@@ -48,7 +48,7 @@ const LoginForm = () => {
         required
       />
 
-      <button type="submit">Login</button>
+      <button type="submit">Create User</button>
     </form>
   );
 };

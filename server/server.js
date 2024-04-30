@@ -12,8 +12,10 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 // Routes
 const fisheriesRouter = require("./routes/fisheriesRoutes");
 const usersRouter = require("./routes/userRoutes");
+const storesRouter = require("./routes/storeRoutes")
 app.use("/api/fisheries", fisheriesRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/stores", storesRouter )
 
 // Example route
 app.get("/", (req, res) => {
