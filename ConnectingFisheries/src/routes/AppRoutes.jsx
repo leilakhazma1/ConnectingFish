@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import About from '../pages/About';
 import MapofFisheries from '../pages/MapofFisheries';
 import YourFish from '../pages/YourFish'
+import Catalogue from '../pages/Catalogue';
 
 
 function AppRoutes() {
@@ -16,6 +17,8 @@ function AppRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/map" element={<MapofFisheries />} />
         <Route path="/yourfish" element={<YourFish />} />
+        <Route path="/catalogue" element={<Catalogue />} />
+
       </Routes>
     </>
   );

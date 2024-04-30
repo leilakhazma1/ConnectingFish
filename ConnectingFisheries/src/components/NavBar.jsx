@@ -23,6 +23,11 @@ function NavBar() {
               Your Fish
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink to="/yourfish" className="nav-link" activeClassName="active-link">
+              Catalogue
+            </NavLink>
+          </li>
         </ul>
       </nav>
       {location.pathname !== "/" && (

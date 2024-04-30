@@ -22,11 +22,6 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the ConnectingFisheries application." });
 });
 
-// Serve the React app for any other route
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
-
 // Require dbConnect after initializing app
 let dbConnect = require("./dbConnect");
 

@@ -7,6 +7,7 @@ import AustraliaMap from '../components/AustraliaMap';
 function MapofFisheries() {
   return (
     <div className="Home">
+      <h1> Australian Fisheries </h1>
      <AustraliaMap />
          
       </div>

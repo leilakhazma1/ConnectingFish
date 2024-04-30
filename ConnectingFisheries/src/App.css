@@ -12,12 +12,13 @@
 h1 {
   font-family: 'Sorts Mill Goudy', serif;
   font-size: 3rem;
-  color: #000000;
-  margin-top: 60px;
+  color: #040831;
+  margin-top: 50px;
   margin-bottom: 10px;
   font-weight: 700;
-  text-align: left;
+  text-align: center;
   padding-left: 40px;
+  opacity: 80%;
 }
 
 body {
@@ -122,6 +123,7 @@ button {
   height: 40px;
   cursor: pointer;
   transition: opacity 0.3s;
+  margin-top: 30px;
 }
 
 button:hover {
@@ -134,3 +136,4 @@ button:hover {
   left: 50%;
   transform: translateX(-50%);
 }
+
