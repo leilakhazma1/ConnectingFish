@@ -1,5 +1,6 @@
 import React from 'react';
-import '../Home.css'
+import '../App.css'
+import LoginForm from '../components/LoginForm';
 
 
 function Home() {
@@ -7,6 +8,7 @@ function Home() {
     <div className="Home">
         <h1> Connecting Fish </h1>
          
+         <LoginForm /> 
       </div>
  
       

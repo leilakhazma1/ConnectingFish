@@ -1,5 +1,5 @@
 import React from 'react';
-import '../YourFish.css'
+import '../App.css'
 import StoreForm from '../components/StoreForm';
 
 
