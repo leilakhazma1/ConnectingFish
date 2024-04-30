@@ -9,7 +9,7 @@ const AustraliaMap = () => {
     const fetchData = async () => {
       const response = await fetch('/api/fisheries');
       const data = await response.json();
-      setFisheries(data);
+      setFisheries(data.data);
     };
 
     fetchData();

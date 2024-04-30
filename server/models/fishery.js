@@ -18,8 +18,8 @@ const fisheriesSchema = new Schema({
   bycatch_methods: { type: String },
   fishing_methods: { type: String },
   bycatch_methods: { type: String },
-  latitude: { type: Number, required: true },
-  longitude: { type: Number, required: true },
+  lat: { type: Number, required: true },
+  lng: { type: Number, required: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });

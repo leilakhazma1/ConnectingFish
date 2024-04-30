@@ -11,7 +11,7 @@ async function insertFisheriesData() {
        // const db = await dbConnect.connect();
 
         // Insert the fisheries data into the database
-        const result = await Models.Fisheries.insertMany(fisheriesData);
+        const result = await Models.Fishery.insertMany(fisheriesData);
         console.log("Fisheries data inserted:", result.length);
 
       
