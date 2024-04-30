@@ -40,39 +40,45 @@ const StoreForm = () => {
   };
 
   return (
-    <div className="form-container">
-      <h2>Store Information Form</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <label htmlFor="storeName">Store Name</label>
-          <input
-            type="text"
-            id="storeName"
-            {...register('storeName', { required: true })}
-          />
-          {errors.storeName && <span className="error">Store Name is required</span>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="location">Location</label>
-          <input
-            type="text"
-            id="location"
-            {...register('location', { required: true })}
-          />
-          {errors.location && <span className="error">Location is required</span>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            {...register('description', { required: true })}
-          ></textarea>
-          {errors.description && <span className="error">Description is required</span>}
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      {submitted && <p>Form submitted successfully!</p>}
-    </div>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="storeName">Store Name:</label>
+      <input
+        type="text"
+        id="storeName"
+        value={storeName}
+        onChange={(e) => setStoreName(e.target.value)}
+        required
+      />
+
+      <label htmlFor="location">Location:</label>
+      <input
+        type="text"
+        id="location"
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        required
+      />
+
+      <label htmlFor="contact">Contact:</label>
+      <input
+        type="text"
+        id="contact"
+        value={contact}
+        onChange={(e) => setContact(e.target.value)}
+        required
+      />
+
+      <label htmlFor="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 

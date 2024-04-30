@@ -7,7 +7,6 @@ function NavBar() {
   return (
     <nav className="navbar">
       <ul className="nav-list">
-  
         <li className="nav-item">
           <NavLink to="/about" className="nav-link" activeClassName="active-link">
             About
@@ -24,10 +23,10 @@ function NavBar() {
           </NavLink>
         </li>
       </ul>
-      {(location.pathname === "/home" || location.pathname === "/about" || location.pathname === "/map" || location.pathname === "/yourfish") && (
+      {location.pathname !== "/" && (
         <div className="back-button-container">
           <NavLink to="/" className="back-button" activeClassName="active-back-button">
-            Back to Homepage
+            Home
           </NavLink>
         </div>
       )}

@@ -11,9 +11,13 @@
   position: relative;
 }
 
+body {
+  font-family: 'Sorts Mill Goudy', serif;
+  margin: 0;
+  padding: 0;
+}
 
 p {
-  font-family: 'Sorts Mill Goudy', serif;
   font-size: 1rem;
   color: #333;
   margin-top: 0;
@@ -27,7 +31,8 @@ p {
   left: 0;
   z-index: 1000;
   height: 50px;
-  background-color: #ffffff;
+  background: url('') ;
+  background-size: cover;
 }
 
 .nav-list {
@@ -47,44 +52,54 @@ p {
 .back-button {
   text-decoration: none;
   font-size: 0.8rem;
-  font-family: 'Sorts Mill Goudy', serif;
   font-weight: bolder;
   letter-spacing: 1px;
-  color: rgb(0, 0, 0);
+  color: #000000; 
   padding: 0.5rem;
+  transition: color 0.3s;
 }
 
-.form-container {
-  width: 50%;
-  margin-left: 20px;
-  font-family: 'Sorts Mill Goudy', serif;
+.nav-link:hover,
+.back-button:hover {
+  color: #ccc; 
 }
 
-.form-group {
-  margin-bottom: 20px;
+form {
+  margin: 10px;
+  max-width: 400px;
+  padding: 20px;
+  border: none;
 }
 
 label {
   display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
-input[type='text'],
+input[type="text"],
+input[type="email"],
+input[type="password"],
 textarea {
   width: 100%;
-  padding: 5px;
-  font-family: 'Sorts Mill Goudy', serif;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #000000;
 }
 
 button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
+  padding: 8px;
+  background-image: url('./assets/201498111730228659_8.webp');
+  opacity: 50%;
+  background-size: cover;
+  color: white; 
   border: none;
+  width: 100px; 
+  height: 40px;
   cursor: pointer;
+  transition: opacity 0.3s;
 }
 
-.error {
-  color: red;
+button:hover {
+  opacity: 0.8; 
 }
+
