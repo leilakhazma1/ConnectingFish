@@ -1,43 +1,25 @@
+"use strict";
 const Store = require('../models/store');
 
-// Controller function to create a new store
-const createStore = async (req, res) => {
-  try {
-    const {
-      storeName,
-      address,
-      city,
-      state,
-      postalCode,
-      country,
-      contactPerson,
-      contactEmail,
-      contactPhone,
-    } = req.body;
-
-    // Create a new store document
-    const newStore = new Store({
-      storeName,
-      address,
-      city,
-      state,
-      postalCode,
-      country,
-      contactPerson,
-      contactEmail,
-      contactPhone,
+const getStores = (res) => {
+  Store.find({})
+    .then(data => res.send({result: 200, data: data}))
+    .catch(err => {
+      console.log(err);
+      res.send({result: 500, error: err.message});
     });
+};
 
-    // Save the new store to the database
-    const savedStore = await newStore.save();
-
-    res.status(201).json(savedStore);
-  } catch (error) {
-    console.error('Error creating store:', error);
-    res.status(500).json({ error: 'Could not create store' });
-  }
+const createStore = (data, res) => {
+  new Store(data).save()
+    .then(data => res.send({result: 201, data: data}))
+    .catch(err => {
+      console.error('Error creating store:', err);
+      res.send({result: 500, error: 'Could not create store'});
+    });
 };
 
 module.exports = {
-  createStore,
+  getStores,
+  createStore
 };
