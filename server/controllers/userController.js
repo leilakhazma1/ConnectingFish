@@ -1,61 +1,32 @@
 "use strict";
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const Models = require("../models");
+let Models = require("../models");
 
-// User registration (signup)
-const register = async (req, res) => {
-  try {
-    const { username, email, password, role } = req.body;
-
-    // Check if user already exists
-    const existingUser = await Models.User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ error: 'User already exists' });
-    }
-
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create a new user
-    const newUser = new Models.User({ username, email, password: hashedPassword, role });
-    await newUser.save();
-
-    res.status(201).json({ message: 'User created successfully', user: newUser });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
+const getUsers = (res) => {
+  Models.User.find({})
+    .then(data => res.send({result: 200, data: data}))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    });
 };
 
-// User login
-const login = async (req, res) => {
-  try {
-    const { email, password } = req.body;
+const createUser = (data, res) => {
+  const { username, email, password, role } = data;
 
-    // Find the user by email
-    const user = await Models.User.findOne({ email });
-    if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
-
-    // Check if the password is correct
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
-
-    // Create a JWT token
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-    res.json({ message: 'Login successful', token });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+  // Validate role
+  if (!role || !['sole_trader', 'government_official'].includes(role)) {
+    return res.status(400).json({ error: 'Invalid role specified' });
   }
+
+  new Models.User({ username, email, password, role }).save()
+    .then(data => res.send({ result: 200, data: data }))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    });
 };
 
 module.exports = {
-  register,
-  login,
+  getUsers,
+  createUser
 };
