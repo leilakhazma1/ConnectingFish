@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-const EditFisheryModal = ({ selectedFishery, onClose, onUpdate }) => {
+
+const EditFisheryModal = ({ selectedFishery, onClose, onUpdate, onDelete }) => {
   const [name, setName] = useState(selectedFishery.name);
   const [species, setSpecies] = useState(selectedFishery.species);
   const [location, setLocation] = useState(selectedFishery.location);
@@ -33,11 +34,28 @@ const EditFisheryModal = ({ selectedFishery, onClose, onUpdate }) => {
     }
   };
 
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`/api/fisheries/${selectedFishery._id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete fishery');
+      }
+
+      onDelete(selectedFishery._id); // Remove the fishery from the parent component
+      onClose(); // Close the modal
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div className="modal">
+    <div className="modal" style={{ zIndex: 9999 }}>
       <div className="modal-content">
         <span className="close" onClick={onClose}>&times;</span>
-        <h2>Edit Fishery</h2>
+        <h2 style={{ textAlign: 'center' }}>Edit Fishery</h2>
         <form>
           <label htmlFor="name">Name:</label>
           <input
@@ -63,7 +81,10 @@ const EditFisheryModal = ({ selectedFishery, onClose, onUpdate }) => {
             onChange={(e) => setLocation(e.target.value)}
           />
 
-          <button type="button" onClick={handleUpdate}>Save Changes</button>
+          <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
+            <button type="button" onClick={handleUpdate}>Save Changes</button>
+            <button type="button" onClick={handleDelete}>Delete Fishery</button>
+          </div>
         </form>
       </div>
     </div>

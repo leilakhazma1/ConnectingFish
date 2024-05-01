@@ -1,8 +1,9 @@
+// AustraliaMap.js
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useUserContext } from '../context/UserContext';
-import EditFisheryModal from './EditFisheryModal'; // Make sure this import is correct
+import EditFisheryModal from './EditFisheryModal';
 
 // Helper function to format string (replace underscores with spaces and capitalize)
 const formatString = (str) => {
@@ -10,11 +11,12 @@ const formatString = (str) => {
 };
 
 const AustraliaMap = () => {
-  const { role } = useUserContext();
-  const [fisheries, setFisheries] = useState([]);
-  const [selectedFishery, setSelectedFishery] = useState(null);
-  const [showEditModal, setShowEditModal] = useState(false);
+  const { role } = useUserContext(); // Get the user's role from context
+  const [fisheries, setFisheries] = useState([]); // State to hold fisheries data
+  const [selectedFishery, setSelectedFishery] = useState(null); // State to hold the selected fishery for editing
+  const [showEditModal, setShowEditModal] = useState(false); // State to control the display of the edit modal
 
+  // Fetch fisheries data from the API when the component mounts
   useEffect(() => {
     const fetchFisheries = async () => {
       try {
@@ -32,43 +34,47 @@ const AustraliaMap = () => {
     fetchFisheries();
   }, []);
 
-  // Function to handle clicking the "Edit Fishery" button
-  const handleEditClick = (fishery) => {
-    setSelectedFishery(fishery);
-    setShowEditModal(true);
-  };
-
   return (
     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '70px', marginLeft: '30px' }}>
       <div style={{ border: '2px solid #ccc', padding: '15px' }}>
+        {/* Render the Leaflet map */}
         <MapContainer center={[-25.2744, 133.7751]} zoom={4} style={{ height: '400px', width: '600px' }}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          {/* Map over the fisheries array and render a marker for each fishery */}
           {fisheries.map((fishery, index) => (
-            <Marker key={index} position={[fishery.lat, fishery.lng]}>
+            <Marker
+              key={index}
+              position={[fishery.lat, fishery.lng]}
+            >
+              {/* Render a popup with information about the fishery */}
               <Popup>
                 <div>
                   <h3>{formatString(fishery.name)}</h3>
                   <p>{formatString(fishery.species)}</p>
                   <p>{formatString(fishery.location)}</p>
+                  {/* Render an "Edit Fishery" button for government officials */}
                   {role === 'government_official' && (
-                    <button onClick={() => handleEditClick(fishery)}>Edit Fishery</button>
+                    <button onClick={() => {
+                      setSelectedFishery(fishery);
+                      setShowEditModal(true);
+                    }}>Edit Fishery</button>
                   )}
                 </div>
               </Popup>
             </Marker>
           ))}
         </MapContainer>
-        {showEditModal && selectedFishery && (
+        {showEditModal && selectedFishery && role === 'government_official' && (
           <EditFisheryModal
             selectedFishery={selectedFishery}
             onClose={() => setShowEditModal(false)}
             onUpdate={(updatedFishery) => {
-              setFisheries((prevFisheries) =>
-                prevFisheries.map((fishery) =>
-                  fishery._id === updatedFishery._id ? updatedFishery : fishery
-                )
-              );
-              setShowEditModal(false);
+              // Implement your update logic here
+              setShowEditModal(false); // Close the modal after successful update
+            }}
+            onDelete={(deletedFisheryId) => {
+              // Implement your delete logic here
+              setShowEditModal(false); // Close the modal after successful delete
             }}
           />
         )}
