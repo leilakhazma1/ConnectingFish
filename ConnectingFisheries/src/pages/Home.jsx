@@ -9,6 +9,8 @@ function Home() {
         <h1> Connecting Fish </h1>
          
          <LoginForm /> 
+
+         
       </div>
  
       

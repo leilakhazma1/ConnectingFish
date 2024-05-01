@@ -19,7 +19,22 @@ const createFishery = (data, res) => {
     });
 };
 
+const updateFishery = (id, data, res) => {
+  Models.Fishery.findByIdAndUpdate(id, data, { new: true })
+    .then(updatedFishery => {
+      if (!updatedFishery) {
+        throw new Error('Fishery not found');
+      }
+      res.send({ result: 200, data: updatedFishery });
+    })
+    .catch(err => {
+      console.log(err);
+      res.send({ result: 500, error: err.message });
+    });
+};
+
 module.exports = {
   getFisheries,
-  createFishery
+  createFishery,
+  updateFishery
 };
