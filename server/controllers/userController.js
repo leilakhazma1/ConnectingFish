@@ -38,11 +38,11 @@ const loginUser = async (data, res) => {
   const { username, password } = data;
 
   try {
-    const user = await User.findOne({ username, password });
+    const user = await User.findOne({ username });
 
-    if (user) {
-      // User found, return success message or token
-      res.send({ result: 200, message: 'Login successful' });
+    if (user && user.password === password) {
+      // User found and password matches, return success message or token
+      res.send({ result: 200, message: 'Login successful', role: user.role });
     } else {
       // User not found or password incorrect
       res.send({ result: 401, error: 'Invalid username or password' });
