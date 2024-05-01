@@ -6,12 +6,15 @@ const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSignup, setIsSignup] = useState(false); // State to track whether it's a signup form or login form
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/users/create', {
+      let url = isSignup ? '/api/users/create' : '/api/users/login';
+
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -20,7 +23,7 @@ const LoginForm = () => {
       });
 
       if (response.ok) {
-        alert('User created successfully!');
+        alert('User authenticated successfully!');
         // Redirect user based on role
         if (role === 'sole_trader') {
           window.location.href = '/yourfish';
@@ -29,7 +32,7 @@ const LoginForm = () => {
         }
       } else {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to create user');
+        throw new Error(errorData.error || 'Failed to authenticate user');
       }
     } catch (error) {
       alert(error.message);
@@ -79,7 +82,8 @@ const LoginForm = () => {
         </select>
 
         <div>
-          <button type="submit">Login</button>
+          <button type="submit">{isSignup ? 'Signup' : 'Login'}</button>
+          <button type="button" onClick={() => setIsSignup(!isSignup)}>{isSignup ? 'Login' : 'Signup'}</button>
         </div>
       </form>
     </div>
