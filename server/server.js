@@ -25,6 +25,12 @@ app.get("/", (req, res) => {
 // Require dbConnect after initializing app
 let dbConnect = require("./dbConnect");
 
+// Error handler middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
+
 // Set port and listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

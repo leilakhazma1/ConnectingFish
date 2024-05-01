@@ -15,7 +15,7 @@ const StoreForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/stores/create', {
+      const response = await fetch('/api/stores', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
