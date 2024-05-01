@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
-import Avatar from './Avatar';
 
 const SignUp = () => {
-  const { user, setUser } = useUserContext(); 
+  const { setUser, setRole } = useUserContext();
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
+  const [role, setSelectedRole] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,21 +76,18 @@ const SignUp = () => {
           <select
             id="role"
             value={role}
-            onChange={(e) => setRole(e.target.value)}
+            onChange={(e) => setSelectedRole(e.target.value)}
             required
           >
             <option value="">Select Role</option>
             <option value="sole_trader">Sole Trader</option>
             <option value="government_official">Government Official</option>
           </select>
-          <div> 
-
-          <button type="submit">Sign Up</button>
-
+          <div>
+            <button type="submit">Sign Up</button>
           </div>
         </form>
       </div>
-
     </div>
   );
 };

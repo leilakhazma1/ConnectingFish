@@ -139,6 +139,9 @@ button:hover {
 
 
 .avatar-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
   display: flex;
   align-items: center;
 }
@@ -149,9 +152,8 @@ button:hover {
   border-radius: 50%;
   background-color: #ccc;
   display: flex;
-  justify-content: right;
+  justify-content: center;
   align-items: center;
   font-size: 18px;
   font-weight: bold;
-  margin-left: 100px; 
 }
