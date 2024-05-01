@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
+import Avatar from './Avatar';
+
 
 const Login = () => {
-  const { role, setRole } = useUserContext();
+  const { user, setUser, setRole } = useUserContext(); 
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +23,9 @@ const Login = () => {
       });
 
       if (response.ok) {
+        const { role } = await response.json(); 
+        setUser(username);
+        setRole(role);
         alert('User logged in successfully!');
         if (role === 'sole_trader') {
           navigate('/yourfish');
@@ -37,9 +42,9 @@ const Login = () => {
   };
 
   return (
-    <div style={{ width: '40%', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-    <h2> Returning Users </h2>
-    <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <h2> Returning Users </h2>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -58,10 +63,10 @@ const Login = () => {
           required
         />
 
-        <div>
-          <button type="submit">Login</button>
-        </div>
+        <button type="submit">Login</button>
       </form>
+
+      {user && <Avatar username={user} />} {/* Conditionally render Avatar */}
     </div>
   );
 };

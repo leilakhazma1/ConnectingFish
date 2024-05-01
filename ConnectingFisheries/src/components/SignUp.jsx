@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
+import Avatar from './Avatar';
 
 const SignUp = () => {
-  const { role, setRole } = useUserContext();
+  const { user, setUser } = useUserContext(); 
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +24,8 @@ const SignUp = () => {
       });
 
       if (response.ok) {
+        setUser(username);
+        setRole(role);
         alert('User created successfully!');
         if (role === 'sole_trader') {
           navigate('/yourfish');
@@ -38,9 +42,9 @@ const SignUp = () => {
   };
 
   return (
-    <div style={{ width: '40%', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <h2>New Users</h2>
-      <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -80,10 +84,10 @@ const SignUp = () => {
           <option value="government_official">Government Official</option>
         </select>
 
-        <div>
-          <button type="submit">Sign Up</button>
-        </div>
+        <button type="submit">Sign Up</button>
       </form>
+
+      {user && <Avatar username={user} />} {/* Conditionally render Avatar */}
     </div>
   );
 };
