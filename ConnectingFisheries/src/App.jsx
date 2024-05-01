@@ -9,10 +9,7 @@ function App() {
    
     <UserProvider>
     <div>
-    <div>
-        <LoginForm />
-        {user ? <div className="avatar">{user.username.charAt(0).toUpperCase()}</div> : null}
-      </div>
+      
       <AppRoutes />
     </div>
   </UserProvider>

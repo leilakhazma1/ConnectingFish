@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css'
-import LoginForm from '../components/LoginForm';
+import AuthForm from '../components/AuthForm';
 
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
     <div className="Home">
         <h1> Connecting Fish </h1>
          
-         <LoginForm /> 
+         <AuthForm />
 
          
       </div>
