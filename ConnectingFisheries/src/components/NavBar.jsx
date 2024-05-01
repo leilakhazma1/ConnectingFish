@@ -1,8 +1,11 @@
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useUserContext } from '../context/UserContext';
+import Avatar from './Avatar';
 
 function NavBar() {
   const location = useLocation();
+  const { user } = useUserContext();
 
   return (
     <>
@@ -29,8 +32,11 @@ function NavBar() {
             </NavLink>
           </li>
         </ul>
+        <div className="avatar-container">
+          {user && <Avatar username={user} />}
+        </div>
       </nav>
-      {location.pathname !== "/" && (
+      {location.pathname !== '/' && (
         <div className="back-button-container">
           <NavLink to="/" className="back-button" activeClassName="active-back-button">
             Home

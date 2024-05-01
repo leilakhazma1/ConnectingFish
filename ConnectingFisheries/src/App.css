@@ -137,3 +137,21 @@ button:hover {
   transform: translateX(-50%);
 }
 
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 100px; 
+}

@@ -8,7 +8,8 @@ function YourFish() {
   return (
     <div className="About">
       
-        <h1>Register</h1>
+        <h1>Register as a Retailer</h1>
+        <p>Connect your store with local Australian Fisheries</p>
     
          <StoreForm />
       </div>

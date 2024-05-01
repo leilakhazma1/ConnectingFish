@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
 import Avatar from './Avatar';
 
-
 const Login = () => {
   const { user, setUser, setRole } = useUserContext(); 
   const navigate = useNavigate();
@@ -42,31 +41,33 @@ const Login = () => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <h2> Returning Users </h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
+      <div style={{ width: '30%' }}>
+        <h2 style={{ textAlign: 'center' }}>Returning Users</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
 
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-        <button type="submit">Login</button>
-      </form>
+          <button type="submit">Login</button>
+        </form>
+      </div>
 
-      {user && <Avatar username={user} />} {/* Conditionally render Avatar */}
+
     </div>
   );
 };

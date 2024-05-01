@@ -42,52 +42,56 @@ const SignUp = () => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <h2>New Users</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
+      <div style={{ width: '30%' }}>
+        <h2 style={{ textAlign: 'center' }}>New Users</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
 
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-        <label htmlFor="role">Role:</label>
-        <select
-          id="role"
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-          required
-        >
-          <option value="">Select Role</option>
-          <option value="sole_trader">Sole Trader</option>
-          <option value="government_official">Government Official</option>
-        </select>
+          <label htmlFor="role">Role:</label>
+          <select
+            id="role"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            required
+          >
+            <option value="">Select Role</option>
+            <option value="sole_trader">Sole Trader</option>
+            <option value="government_official">Government Official</option>
+          </select>
+          <div> 
 
-        <button type="submit">Sign Up</button>
-      </form>
+          <button type="submit">Sign Up</button>
 
-      {user && <Avatar username={user} />} {/* Conditionally render Avatar */}
+          </div>
+        </form>
+      </div>
+
     </div>
   );
 };
