@@ -1,18 +1,14 @@
 import React from 'react';
-import '../App.css'
-
-
+import DPIFishSpeciesLiveFeed from '../components/DPIFishSpeciesLiveFeed';
+import '../App.css';
 
 function Catalogue() {
   return (
     <div className="Catalogue">
-      
-         
-      </div>
- 
-      
-     
-   
+      <h1>Australian Species</h1>
+      <p>Department of Primary Industries</p>
+      <DPIFishSpeciesLiveFeed />
+    </div>
   );
 }
 
