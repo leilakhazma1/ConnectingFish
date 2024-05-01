@@ -9,6 +9,9 @@ app.use(express.json());
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, "client", "build")));
 
+// Require dbConnect after initializing app
+let dbConnect = require("./dbConnect");
+
 // Routes
 const fisheriesRouter = require("./routes/fisheriesRoutes");
 const usersRouter = require("./routes/userRoutes");
@@ -22,8 +25,6 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the ConnectingFisheries application." });
 });
 
-// Require dbConnect after initializing app
-let dbConnect = require("./dbConnect");
 
 // Error handler middleware
 app.use((err, req, res, next) => {

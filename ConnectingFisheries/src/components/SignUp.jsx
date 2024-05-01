@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
-import { useUserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../context/UserContext';
 
-const LoginForm = () => {
+const SignUp = () => {
   const { role, setRole } = useUserContext();
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isSignup, setIsSignup] = useState(false); 
-  const navigate = useNavigate ()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      let url = isSignup ? '/api/users/create' : '/api/users/login';
-
-      const response = await fetch(url, {
+      const response = await fetch('/api/users/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,16 +22,15 @@ const LoginForm = () => {
       });
 
       if (response.ok) {
-        alert('User authenticated successfully!');
-        // Redirect user based on role
+        alert('User created successfully!');
         if (role === 'sole_trader') {
-          navigate('/yourfish') 
+          navigate('/yourfish');
         } else if (role === 'government_official') {
-          navigate('/map') 
+          navigate('/map');
         }
       } else {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to authenticate user');
+        throw new Error(errorData.error || 'Failed to create user');
       }
     } catch (error) {
       alert(error.message);
@@ -42,8 +38,9 @@ const LoginForm = () => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh' }}>
-      <form onSubmit={handleSubmit} style={{ width: '300px' }}>
+    <div style={{ width: '40%', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <h2>New Users</h2>
+      <form onSubmit={handleSubmit} style={{ width: '100%' }}>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -84,12 +81,11 @@ const LoginForm = () => {
         </select>
 
         <div>
-          <button type="submit">{isSignup ? 'Signup' : 'Login'}</button>
-          <button type="button" onClick={() => setIsSignup(!isSignup)}>{isSignup ? 'Login' : 'Signup'}</button>
+          <button type="submit">Sign Up</button>
         </div>
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default SignUp;
