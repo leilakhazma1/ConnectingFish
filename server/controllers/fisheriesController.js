@@ -33,8 +33,23 @@ const updateFishery = (id, data, res) => {
     });
 };
 
+const deleteFishery = (id, res) => {
+  Models.Fishery.findByIdAndDelete(id)
+    .then(deletedFishery => {
+      if (!deletedFishery) {
+        throw new Error('Fishery not found');
+      }
+      res.send({ result: 200, data: deletedFishery });
+    })
+    .catch(err => {
+      console.log(err);
+      res.send({ result: 500, error: err.message });
+    });
+};
+
 module.exports = {
   getFisheries,
   createFishery,
-  updateFishery
+  updateFishery,
+  deleteFishery
 };

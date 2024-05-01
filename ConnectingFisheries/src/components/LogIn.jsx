@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
 
-
 const Login = () => {
-  const { user, setUser, setRole } = useUserContext(); 
+  const { setUser, setRole } = useUserContext(); 
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -24,6 +23,7 @@ const Login = () => {
       if (response.ok) {
         const { role } = await response.json(); 
         setUser(username);
+        console.log(role)
         setRole(role);
         alert('User logged in successfully!');
         if (role === 'sole_trader') {
@@ -66,8 +66,6 @@ const Login = () => {
           <button type="submit">Login</button>
         </form>
       </div>
-
-
     </div>
   );
 };

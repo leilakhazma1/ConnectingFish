@@ -13,6 +13,8 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
+
     try {
       const response = await fetch('/api/users/create', {
         method: 'POST',
