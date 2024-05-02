@@ -13,6 +13,7 @@ const storeSchema = new Schema({
   contactPhone: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
+  status: {type: String, default: "unverified"}
 });
 
 const Store = mongoose.model('Store', storeSchema);

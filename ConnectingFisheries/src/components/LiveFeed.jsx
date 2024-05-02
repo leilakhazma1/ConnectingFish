@@ -5,7 +5,7 @@ const LiveFeed = () => {
     <div>
       <iframe
         title="AFMA Commercial Fishers"
-        src="https://www.afma.gov.au/commercial-fishers"
+        src="https://www.afma.gov.au/fisheries-management/monitoring-tools/logbooks-and-elogs"
         style={{ width: '100%', height: '600px', border: 'none' }}
       />
     </div>
